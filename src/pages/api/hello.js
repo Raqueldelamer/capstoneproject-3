@@ -1,4 +1,5 @@
 import { Redis } from '@upstash/redis';
+import { createClient } from 'vercel/kv'
 
 // set up on terminal https://github.com/rmccrear/lv-3-may-2024/blob/main/week-3/part-1-setup.md
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
