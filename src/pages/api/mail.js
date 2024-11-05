@@ -22,7 +22,7 @@ export default function handler(req, res) {
     
     resend.emails.send(email);
 
-    res.status(200).json({ name: name, message: message })
+    res.status(200).json({ name: name, subject: subject, message: message })
 
 }
 

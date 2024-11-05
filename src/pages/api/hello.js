@@ -1,5 +1,17 @@
+import { Redis } from '@upstash/redis';
+
+// set up on terminal https://github.com/rmccrear/lv-3-may-2024/blob/main/week-3/part-1-setup.md
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-export default function handler(req, res) {
-  res.status(200).json({ name: "John Doe" });
+// Initialize Redis
+const redis = Redis.fromEnv();
+
+export default async function handler(req, res) {
+ await redis.set("item", "apple")
+
+
+  const result = await redis.get("item");
+
+  res.status(200).json({ name: "Jane", result: result});
+
 }
