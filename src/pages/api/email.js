@@ -7,9 +7,9 @@ console.log("api_key:", resend);
 
 export default function handler(req, res) {
     const query = req.query;
-    const name = query.name;
-    const message = query.message;
-    const subject = query.subject;
+    const name = query.name || "User"; //default name if not provided
+    const message = query.message || "Hey. Everything is going to be ok, I think. You can always move to France.";
+    const subject = query.subject || "S.O.S.";
 
     console.log(name);
     console.log(message);
@@ -23,9 +23,15 @@ export default function handler(req, res) {
     
     });
     
-    resend.emails.send(email);
-
-    res.status(200).json({ name: name, subject: subject, message: message })
+    resend.emails.send(email)
+        .then(() => {
+            res.status(200).json({ name: name, subject: subject, message: message });
+    })
+        .catch(error => {
+            console.error("Error sending email:", error);
+            res.status(500).json({ error: 'Failed to send emaail'});
+        });
+    
 
 }
 
