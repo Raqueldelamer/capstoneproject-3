@@ -1,6 +1,9 @@
 import { Resend } from 'resend';
 
-const resend = new Resend('re_g7fTSP5M_ChFbq3sAAgCg3WJc6qHYuFU5');
+const resend_api_key = process.env.resend_api_key;
+console.log(resend_api_key);
+const resend = new Resend(resend_api_key);
+console.log("api_key:", resend);
 
 export default function handler(req, res) {
     const query = req.query;
@@ -26,6 +29,5 @@ export default function handler(req, res) {
 
 }
 
-    
 
 
