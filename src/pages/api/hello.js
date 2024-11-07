@@ -8,7 +8,8 @@ import { Redis } from '@upstash/redis';
 const redis = Redis.fromEnv();
 
 export default async function handler(req, res) {
- await redis.set("item", "apple")
+  const item = req.query.item || "pineapple";
+  await redis.set("item", item)
 
 
   const result = await redis.get("item");
