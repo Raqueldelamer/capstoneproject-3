@@ -9,11 +9,16 @@ const redis = Redis.fromEnv();
 
 export default async function handler(req, res) {
   const item = req.query.item || "pineapple";
-  await redis.set("item", item)
+  const user = req.query.user 
+  await redis.set(`item:${user}`, item) 
+
+  // await redis.set("user", user)
+
+
 
 
   const result = await redis.get("item");
 
-  res.status(200).json({ name: "Jane", result: result});
+  res.status(200).json({ name: user, result: result});
 
 }
