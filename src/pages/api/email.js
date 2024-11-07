@@ -7,7 +7,7 @@ console.log("api_key:", resend);
 
 export default function handler(req, res) {
     const query = req.query;
-    const name = query.name || "User"; //default name if not provided
+    const name = query.name || "Name: Raquel"; //default name if not provided
     const message = query.message || "Hey. Everything is going to be ok, I think. You can always move to France.";
     const subject = query.subject || "S.O.S.";
 

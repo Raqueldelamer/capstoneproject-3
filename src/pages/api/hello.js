@@ -15,8 +15,6 @@ export default async function handler(req, res) {
   // await redis.set("user", user)
 
 
-
-
   const result = await redis.get("item");
 
   res.status(200).json({ name: user, result: result});
