@@ -23,6 +23,7 @@ export default function MailPage() {
         
         // message area below
     }
+
     function messageChangeHandler(event) {
         console.log(event);
         const messageInput = event.target.value;
@@ -47,9 +48,9 @@ export default function MailPage() {
                 onChange={subjectChangeHandler} />
             </form>
             
-            <form className="text-white ml-2"><label className="flex font-bold" input="text">Message:</label>
-            <textarea className="border-blue-900 px-4 ml-1 mb-1 text-black" value={message} 
-            type="text" onChange={messageChangeHandler} /> 
+            <form className="ml-2">
+                Message: <textarea className="border-blue-900 px-4 ml-1 mb-1 text-black flex" value={message} 
+                type="text" onChange={messageChangeHandler} /> 
             </form>
 
             
