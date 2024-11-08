@@ -47,7 +47,7 @@ export default function MailPage() {
                 onChange={subjectChangeHandler} />
             </form>
             
-            <form className="text-white ml-2"><label className="flex font-bold">Message:</label>
+            <form className="text-white ml-2"><label className="flex font-bold" input="text">Message:</label>
             <textarea className="border-blue-900 px-4 ml-1 mb-1 text-black" value={message} 
             type="text" onChange={messageChangeHandler} /> 
             </form>
