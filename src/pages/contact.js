@@ -9,6 +9,7 @@ export default function MailPage() {
 
     async function sendMail() {
         const result = await fetch(`/api/email?user=${user}&subject=${subject}&message=${message}`)
+        console.log(result);
     }
     
     function handleClick() {
