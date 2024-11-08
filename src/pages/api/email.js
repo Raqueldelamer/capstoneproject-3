@@ -1,16 +1,15 @@
 import { Resend } from 'resend';
 
-const resend_api_key = process.env.resend_api_key;
-console.log(resend_api_key);
-const resend = new Resend(resend_api_key);
-console.log("api_key:", resend);
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const resend = new Resend(RESEND_API_KEY);
+
 
 export default async function handler(req, res) {
 
     const query = req.query;
-    const user = query.user;  //|| "Raquel"; //default name if not provided
-    const subject = req.query.subject; //|| "Hi!";
-    const message = req.query.message; //|| "Hello";
+    const user = query.user;  
+    const subject = req.query.subject; 
+    const message = req.query.message;
     
 
     console.log(user);
