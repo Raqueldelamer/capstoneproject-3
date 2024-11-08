@@ -23,13 +23,13 @@ export default async function handler(req, res) {
         from: 'onboarding@resend.dev',
         to: 'raqueldelamer@gmail.com',
         subject: `${subject}`,
-        html: `<p><strong>${message}</strong>!</p>`
+        html: `${user} says <p><strong>${message}</strong>!</p>`
     
     });
     
     await resend.emails.send(email)
         .then(() => {
-            res.status(200).json({ name: user, subject: subject, message: message });
+            res.status(200).json({ message: "Email sent!" });
     })
         .catch(error => {
             console.error("Error sending email:", error);
