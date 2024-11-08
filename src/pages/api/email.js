@@ -5,15 +5,19 @@ console.log(resend_api_key);
 const resend = new Resend(resend_api_key);
 console.log("api_key:", resend);
 
-export default function handler(req, res) {
-    const query = req.query;
-    const name = query.name || "Name: Raquel"; //default name if not provided
-    const message = query.message || "Hey. Everything is going to be ok, I think. You can always move to France.";
-    const subject = query.subject || "S.O.S.";
+export default async function handler(req, res) {
 
-    console.log(name);
-    console.log(message);
+    const query = req.query;
+    const user = query.user;  //|| "Raquel"; //default name if not provided
+    const subject = req.query.subject; //|| "Hi!";
+    const message = req.query.message; //|| "Hello";
     
+
+    console.log(user);
+    console.log(subject);
+    console.log(message);
+
+
     const email = ({
         
         from: 'onboarding@resend.dev',
@@ -23,13 +27,13 @@ export default function handler(req, res) {
     
     });
     
-    resend.emails.send(email)
+    await resend.emails.send(email)
         .then(() => {
-            res.status(200).json({ name: name, subject: subject, message: message });
+            res.status(200).json({ name: user, subject: subject, message: message });
     })
         .catch(error => {
             console.error("Error sending email:", error);
-            res.status(500).json({ error: 'Failed to send emaail'});
+            res.status(500).json({ error: 'Failed to send email'});
         });
     
 
