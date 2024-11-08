@@ -8,7 +8,7 @@ export default function MailPage() {
     const [message, setMessage] = useState("");
 
     async function sendMail() {
-        const result = await fetch(`/api/email?user=${user}&subject=${subject}&message=${message}`);
+        const result = await fetch(`/api/email`); //?user=${user}&subject=${subject}&message=${message}
         console.log(result);
     }
     
