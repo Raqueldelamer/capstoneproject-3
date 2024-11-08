@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     const email = {
         
         from: 'onboarding@resend.dev',
-        to: 'raqueldelamer@gmail.com',
+        to: ['raqueldelamer@gmail.com'],
         subject: `${subject}`,
         html: `${user} says <p><strong>${message}</strong>!</p>`
     
@@ -31,9 +31,10 @@ export default async function handler(req, res) {
         res.status(200).json({ message: "Email sent!" });
     
     } catch(error) {
-            console.error("Error sending email:", error.response ? error.response.data : error);
-            res.status(500).json({ error: 'Failed to send email', details: error.message });
-        }
+            
+        console.error("Error sending email:", error.response ? error.response.data : error);
+        res.status(500).json({ error: 'Failed to send email', details: error.message });
+    }
     
 
 }
