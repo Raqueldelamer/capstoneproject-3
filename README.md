@@ -20,6 +20,7 @@
 - [x] This assignment is about creating a strong server application. It uses Vercel and Upstash to safely store user data, and the Resend API for sending emails. By working on this project, you'll get practical experience in building servers, storing data, and integrating email features.
 <br />
 <br />
+
 ![Alt text](imgs/Upstash-capstone.jpg)
 
 ### Assignment 2: Next.js Client Project Assignment 
