@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { Redis } from '@upstash/redis';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const resend = new Resend(RESEND_API_KEY);
@@ -8,10 +9,6 @@ export default async function handler(req, res) {
 
     const { user, subject, message } = req.query;
 
-  //  const query = req.query;
-  //  const user = query.user;  
-  //  const subject = req.query.subject; 
-  //  const message = req.query.message;
     console.log(user);
     console.log(subject);
     console.log(message);
@@ -20,7 +17,7 @@ export default async function handler(req, res) {
     const email = {
         
         from: 'onboarding@resend.dev',
-        to: [`raqueldelamer@gmail.com`],
+        to: ['raqueldelamer@gmail.com'],
         subject: `${subject}`,
         html: `${user} says <p><strong>${message}</strong>!</p>`
     
@@ -29,6 +26,8 @@ export default async function handler(req, res) {
     try {
         await resend.emails.send(email);
         res.status(200).json({ message: "Email sent!" });
+
+        await Redis.incr('count');
     
     } catch(error) {
             

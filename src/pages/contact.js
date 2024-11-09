@@ -31,6 +31,7 @@ export default function MailPage() {
     }
     
     function subjectChangeHandler(event) {
+        console.log(event);
         const subjectInput = event.target.value;
         setSubject(subjectInput);
     }

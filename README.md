@@ -1,15 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+## ## Roadmap : Email Integration , Key-Value Store on Server, Combine Features
 
-## Getting Started
+### Part 1: Email Integration
+- [x] Create an endpoint in your /api folder called email.js
+- [x] The endpoint should return a JSON object with a message that says "Email sent!" or "Error sending email!"
+- [x] Create an account on resend.com
+- [x] Send an email to yourself using the API endpoint you just created
+- [x] Explains the server architecture and includes the diagram in README.md
 
-First, run the development server:
+### Part 2: Key-Value Store on Server
 
-```bash
-npm run dev
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [x] - Use Upstash to add data persistence to your server
+- [x] - Custom Components: on more-cats page 
+- [x] - Component Reusability: components reused from cats part 2 & 3
+- [x] Bonus: Successfully implemented at least one stretch goal, including creating and using custom components
+<br />
 
 [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
@@ -28,6 +32,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
