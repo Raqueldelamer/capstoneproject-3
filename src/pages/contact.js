@@ -30,7 +30,7 @@ export default function MailPage() {
 
     function changeHandler(event) {
         const input = event.target.value;
-        console.log("changed" + input);
+        console.log(event);
         setUser(input);
     }
 
