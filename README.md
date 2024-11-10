@@ -25,7 +25,7 @@
 
 ### Assignment 2: Next.js Client Project Assignment 
 
-<a href="https://capstoneproject-3.vercel.app/contact" target="_blank"> https://capstoneproject-3.vercel.app/contact Link </a>
+<a href="https://capstoneproject-3.vercel.app/contact" target="_blank">Link: https://capstoneproject-3.vercel.app/contact</a>
 
 ![Alt text](imgs/resend-emails.jpg) <br />
 

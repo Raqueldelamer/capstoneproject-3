@@ -3,6 +3,7 @@ import { Redis } from '@upstash/redis';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const resend = new Resend(RESEND_API_KEY);
+const redis = Redis.fromEnv();
 
 
 export default async function handler(req, res) {
@@ -27,7 +28,7 @@ export default async function handler(req, res) {
         await resend.emails.send(email);
         res.status(200).json({ message: "Email sent!" });
 
-        await Redis.incr('count');
+        await redis.incr('count');
     
     } catch(error) {
             

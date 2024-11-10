@@ -6,10 +6,21 @@ export default function MailPage() {
     const [user, setUser] = useState("");
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
+    const [status, setStatus] = useState("");
 
     async function sendMail() {
-        const result = await fetch(`/api/email?user=${user}&subject=${subject}&message=${message}`); 
-    
+        try {
+            const response = await fetch(`/api/email?user=${encodeURIComponent(user)}&subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`);
+
+            if (response.ok) {
+                setStatus("Message sent successfully!");
+            } else {
+                setStatus("Failed to send the message.");
+            }
+        } catch (error) {
+            console.error("Error sending mail:", error);
+            setStatus("An error occurred while sending the message.");
+        }
     }
     
     function handleClick() {
@@ -18,10 +29,8 @@ export default function MailPage() {
 
     function changeHandler(event) {
         const input = event.target.value;
-        console.log("input" + input);
+        console.log("changed" + input);
         setUser(input);
-        
-        // message area below
     }
 
     function messageChangeHandler(event) {
@@ -64,6 +73,8 @@ export default function MailPage() {
                 type="button" onClick={handleClick}> :Send Message 
                 </button>
             </form>
+            {/* Feedback message */}
+            {status && <p className="mt-4 text-center">{status}</p>}
         </div>
     );
 }
