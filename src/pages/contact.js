@@ -12,7 +12,6 @@ export default function MailPage() {
         try {
             const response = await fetch(`/api/email?user=${user}&subject=${subject}&message=${message}`);
         
-            
             if (response.ok) {
                 setStatus("Message sent successfully!");
             } else {
@@ -55,7 +54,6 @@ export default function MailPage() {
 
                 Subject: <input id="subject" className="px-4 ml-1 mb-1 text-black flex" type="text" value={subject} 
                 onChange={subjectChangeHandler} />
-            
             
                 Message: <textarea id="message" className="border-blue-900 px-4 ml-1 mb-1 text-black flex" value={message} 
                 type="text" onChange={messageChangeHandler} /> 

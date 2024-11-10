@@ -5,7 +5,6 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const resend = new Resend(RESEND_API_KEY);
 //const redis = Redis.fromEnv();
 
-
 export default async function handler(req, res) {
 
     const { user, subject, message } = req.query;
@@ -13,7 +12,6 @@ export default async function handler(req, res) {
     console.log(user);
     console.log(subject);
     console.log(message);
-
 
     const email = {
         
@@ -27,16 +25,14 @@ export default async function handler(req, res) {
     try {
         await resend.emails.send(email);
         res.status(200).json({ message: "Email sent!" });
-
-       // await redis.incr('count');
-    
+        // await redis.incr('count');
+        
     } catch(error) {
             
         console.error("Error sending email:", error.response ? error.response.data : error);
         res.status(500).json({ error: 'Failed to send email', details: error.message });
     }
     
-
 }
 
 
