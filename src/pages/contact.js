@@ -10,14 +10,8 @@ export default function MailPage() {
 
     async function sendMail() {
         try {
-            //const response = await fetch(`/api/email?user=${encodeURIComponent(user)}&subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`);
-            const response = await fetch(`/api/email`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ user, subject, message })
-            });
+            const response = await fetch(`/api/email?user=${user}&subject=${subject}&message=${message}`);
+        
             
             if (response.ok) {
                 setStatus("Message sent successfully!");
